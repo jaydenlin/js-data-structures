@@ -1,0 +1,22 @@
+{
+  "name": "js-data-structures",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaydenlin/js-data-structures.git"
+  },
+  "author": "jaydenlin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaydenlin/js-data-structures/issues"
+  },
+  "homepage": "https://github.com/jaydenlin/js-data-structures#readme",
+  "dependencies": {
+    "mocha": "2.4.5"
+  }
+}
