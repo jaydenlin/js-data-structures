@@ -5,6 +5,8 @@ var BinaryTree = function() {
     this.insert = insert;
     this.remove = remove;
     this.inOrder = inOrder;
+    this.findMax = findMax;
+    this.findMin = findMin;
 }
 
 function insert(data) {
@@ -50,23 +52,69 @@ function inOrder(node) {
     }
 }
 
-function _removeNode(node, data) {
-    console.log("remove");
-    if (node !== null) {
-        inOrder(node.left);
-        node.show();
-        inOrder(node.right);
+function findMax(node){
+    var currentNode = node;
+    while (currentNode.right !== null) {
+        currentNode = currentNode.right;
     }
+    return currentNode;
+}
 
-    //TODO
-
+function findMin(node){
+    var currentNode = node;
+    while (currentNode.left !== null) {
+        currentNode = currentNode.left;
+    }
+    return currentNode;
 }
 
 function remove(node, data) {
-    console.log("remove");
     //TODO
+    if(node === null){
+        return node;
+
+    }else if(data > node.data){
+        
+        node.right = remove(node.right, data);
+
+    }else if(data < node.data){
+        
+        node.left = remove(node.left, data);
+
+    }else{
+
+        //Case 1. No Child
+        if(node.left === null && node.right === null){
+            //console.log("Case 1.  No Child");
+            node = null;
+        }    
+        //Case 2.  One Child 
+        else if (node.left === null) { 
+            //console.log("Case 2.  One Child - right");
+            node = node.right;
+          
+        }
+        else if (node.right === null) {
+            //console.log("Case 2.  One Child - left");
+            node = node.left;
+
+        } 
+        //Case 3.  Two Children
+        else{ 
+            //console.log("Case 3.  Two Children");
+            var tempNode = this.findMax(node.left);
+            node.data = tempNode.data;
+            node.left = remove(node.left,tempNode.data);
+
+        }
+    }
+
+    return node;
 
 }
+    
+    
+
 
 
 module.exports = BinaryTree;
