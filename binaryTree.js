@@ -94,17 +94,17 @@ function remove(node, data) {
         }
         //Case 2.  One Child 
         else if (node.left === null) {
-            //console.log("Case 2.  One Child - right");
+            console.log("Case 2.  One Child - right");
             node = node.right;
 
         } else if (node.right === null) {
-            //console.log("Case 2.  One Child - left");
+            console.log("Case 2.  One Child - left");
             node = node.left;
 
         }
         //Case 3.  Two Children
         else {
-            //console.log("Case 3.  Two Children");
+            console.log("Case 3.  Two Children");
             var tempNode = this.findMax(node.left);
             node.data = tempNode.data;
             node.left = remove(node.left, tempNode.data);
