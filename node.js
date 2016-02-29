@@ -6,7 +6,8 @@ var Node=function(params){
 }
 
 function show(){
-   console.log(this.data);    
+   console.log(this.data); 
+   return this.data;   
 }
 
 

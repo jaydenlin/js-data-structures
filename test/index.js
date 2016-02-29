@@ -10,10 +10,14 @@ describe('binaryTree', function() {
   	  binaryTree.insert(2);
   	  binaryTree.insert(1);
   	  binaryTree.insert(9);
-  	 
+      
+      //Clean _traversalRecord before traversal
+  	  binaryTree._traversalRecord.length=0;
       binaryTree.inOrder(binaryTree.root);
+      console.log(binaryTree._traversalRecord);
+      var stub =[ 1, 2, 3, 4, 5, 9 ];
+      assert.equal(binaryTree._traversalRecord.toString(), stub.toString());
 
-      //TODO
      
     });
 
@@ -27,11 +31,14 @@ describe('binaryTree', function() {
       binaryTree.insert(2);
       binaryTree.insert(1);
       binaryTree.insert(9);
-   
+
+      //Clean _traversalRecord before traversal
+      binaryTree._traversalRecord.length=0;  
       binaryTree.inOrder(binaryTree.remove(binaryTree.root,3));
+      console.log(binaryTree._traversalRecord);
+      var stub = [ 1, 2, 4, 5, 9 ];
+      assert.equal(binaryTree._traversalRecord.toString(), stub.toString());
     
-      //TODO
-     
     });
 
   it('find max test', function () {

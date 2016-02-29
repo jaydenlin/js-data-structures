@@ -1,5 +1,5 @@
 var Node = require("./node");
-
+var _traversalRecord = [];
 var BinaryTree = function() {
     this.root = null;
     this.insert = insert;
@@ -7,6 +7,7 @@ var BinaryTree = function() {
     this.inOrder = inOrder;
     this.findMax = findMax;
     this.findMin = findMin;
+    this._traversalRecord = _traversalRecord;
 }
 
 function insert(data) {
@@ -48,6 +49,9 @@ function inOrder(node) {
     if (node !== null) {
         inOrder(node.left);
         node.show();
+        //console.log("_traversalRecord");
+        //console.log(_traversalRecord);
+        _traversalRecord.push(node.data);
         inOrder(node.right);
     }
 }
