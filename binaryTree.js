@@ -56,7 +56,7 @@ function inOrder(node) {
     }
 }
 
-function findMax(node){
+function findMax(node) {
     var currentNode = node;
     while (currentNode.right !== null) {
         currentNode = currentNode.right;
@@ -64,7 +64,7 @@ function findMax(node){
     return currentNode;
 }
 
-function findMin(node){
+function findMin(node) {
     var currentNode = node;
     while (currentNode.left !== null) {
         currentNode = currentNode.left;
@@ -74,41 +74,40 @@ function findMin(node){
 
 function remove(node, data) {
     //TODO
-    if(node === null){
+    if (node === null) {
         return node;
 
-    }else if(data > node.data){
-        
+    } else if (data > node.data) {
+
         node.right = remove(node.right, data);
 
-    }else if(data < node.data){
-        
+    } else if (data < node.data) {
+
         node.left = remove(node.left, data);
 
-    }else{
+    } else {
 
         //Case 1. No Child
-        if(node.left === null && node.right === null){
+        if (node.left === null && node.right === null) {
             //console.log("Case 1.  No Child");
             node = null;
-        }    
+        }
         //Case 2.  One Child 
-        else if (node.left === null) { 
+        else if (node.left === null) {
             //console.log("Case 2.  One Child - right");
             node = node.right;
-          
-        }
-        else if (node.right === null) {
+
+        } else if (node.right === null) {
             //console.log("Case 2.  One Child - left");
             node = node.left;
 
-        } 
+        }
         //Case 3.  Two Children
-        else{ 
+        else {
             //console.log("Case 3.  Two Children");
             var tempNode = this.findMax(node.left);
             node.data = tempNode.data;
-            node.left = remove(node.left,tempNode.data);
+            node.left = remove(node.left, tempNode.data);
 
         }
     }
@@ -116,8 +115,6 @@ function remove(node, data) {
     return node;
 
 }
-    
-    
 
 
 
