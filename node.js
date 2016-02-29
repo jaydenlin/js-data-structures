@@ -1,7 +1,7 @@
-var Node=function(){
-   this.data=null;
-   this.left=null;
-   this.right=null;
+var Node=function(params){
+   this.data=params.data;
+   this.left=params.left;
+   this.right=params.right;
    this.show=show;
 }
 
